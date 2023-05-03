@@ -3,6 +3,9 @@
 
 let startButton;
 let nextButton;
+let choice1;
+let choice2;
+
 let isStartScene;
 let isScene1;
 let dialogue = [];
@@ -68,22 +71,27 @@ function nextLine() {
   line++;
   text(dialogue[line], 20, height - 100, width - 20, height);
 
-  if (isScene1) {
-    if (line == 3) {
-      nextButton.remove();
-      let choice1 = createButton("Sleep more");
-      choice1.position(width/2 - choice1.width/2, height/2 - 20);
-      choice1.mousePressed(chose1);
-      
-      let choice2 = createButton("Get up now");
-      choice2.position(width/2 - choice1.width/2, height/2 + 20);
-      choice2.mousePressed(chose2);
-    }
-  }
-
   text("Mental Health: " + mentalHealth, 20, 20);
   text("School Health: " + schoolHealth, 20, 30);
   text("Happiness Meter: " + happinessMeter, 20, 40);
+
+  if (isScene1) {
+    if (line == 3) {
+      nextButton.hide();
+      choice1 = createButton("Sleep more");
+      choice1.position(width/2 - choice1.width/2, height/2 - 20);
+      choice1.mousePressed(chose1);
+      
+      choice2 = createButton("Get up now");
+      choice2.position(width/2 - choice1.width/2, height/2 + 20);
+      choice2.mousePressed(chose2);
+    }
+    if (line > 3) {
+      choice1.hide();
+      choice2.hide();
+    }
+  }
+
 }
 
 function chose1() {
