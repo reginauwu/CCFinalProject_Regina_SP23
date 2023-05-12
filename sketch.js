@@ -1,5 +1,6 @@
 // Regina Wu
 // Final Project CC Spring 23
+// gaegu font https://fonts.google.com/specimen/Gaegu?query=gaegu 
 
 let startButton;
 let nextButton;
@@ -19,8 +20,8 @@ let schoolHealth;
 let happinessMeter;
 
 function setup() {
-  createCanvas(400, 400);
-  background(200);
+  createCanvas(windowWidth, windowHeight);
+  background(0);
   startScene();
   isStartScene = true;
 
@@ -35,6 +36,7 @@ function draw() {
 function startScene() {
   fill(255);
   textAlign(CENTER);
+  textSize(50);
   text("The NYU life", width/2, height/4);
   noStroke();
   startButton = createButton("Start");
@@ -44,8 +46,10 @@ function startScene() {
 
 function scene1() {
   isScene1 = true;
-  background(200);
+  background(0);
   startButton.remove();
+
+  textSize(20);
 
   fill(255);
   textAlign(LEFT);
@@ -61,19 +65,22 @@ function scene1() {
   line = 0;
   text(dialogue[line], 20, height - 100, width - 20, height);
 
+  textSize(14);
   text("Mental Health: " + mentalHealth, 20, 20);
-  text("School Health: " + schoolHealth, 20, 30);
-  text("Happiness Meter: " + happinessMeter, 20, 40);
+  text("School Health: " + schoolHealth, 20, 35);
+  text("Happiness Meter: " + happinessMeter, 20, 50);
 }
 
 function nextLine() {
-  background(200);
+  background(0);
   line++;
+  textSize(20);
   text(dialogue[line], 20, height - 100, width - 20, height);
 
+  textSize(14);
   text("Mental Health: " + mentalHealth, 20, 20);
-  text("School Health: " + schoolHealth, 20, 30);
-  text("Happiness Meter: " + happinessMeter, 20, 40);
+  text("School Health: " + schoolHealth, 20, 35);
+  text("Happiness Meter: " + happinessMeter, 20, 50);
 
   if (isScene1) {
     if (line == 3) {
@@ -95,7 +102,9 @@ function nextLine() {
 }
 
 function chose1() {
+  //fill("#D1FFBD"); green
   schoolHealth -= 10;
+  //fill("#FAA0A0"); red
   mentalHealth += 20;
   happinessMeter += 5;
   nextLine();
