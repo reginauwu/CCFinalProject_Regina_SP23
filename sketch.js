@@ -277,6 +277,24 @@ function scene2b() {
 function scene3() {
   sceneButton.hide();
   background(0);
+
+  textSize(200);
+  fill(255);
+  textAlign(CENTER);
+
+  text("GRADUATION", width/2, height/2 - 300);
+
+  textSize(100);
+  textAlign(CENTER);
+  text("Mental Health: " + mentalHealth,  width/2, height/2 - 100);
+  text("School Health: " + schoolHealth,  width/2, height/2);
+  text("Social Health: " + socialHealth,  width/2, height/2 + 100);
+
+  textSize(130);
+  text("TY FOR THE GREAT SEMESTER!", width/2, height/2 + 300);
+
+  textSize(50);
+  text("ps: not based on a true story", width/2, height/2 + 400);
 }
 
 function nextLine() {
@@ -382,7 +400,7 @@ function nextLine() {
     }
     if (line == 3) {
       nextButton.hide();
-      sceneButton = createButton("Few weeks later");
+      sceneButton = createButton("Graduation");
       sceneButton.style('color', color(255));
       sceneButton.style('font-size','50px');
       sceneButton.style('background-color', color(50));
@@ -399,7 +417,7 @@ function nextLine() {
     }
     if (line == 8) {
       nextButton.hide();
-      sceneButton = createButton("Few weeks later");
+      sceneButton = createButton("Graduation");
       sceneButton.style('color', color(255));
       sceneButton.style('font-size','50px');
       sceneButton.style('background-color', color(50));
