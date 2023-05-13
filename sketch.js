@@ -45,9 +45,9 @@ function setup() {
   startScene();
   isStartScene = true;
 
-  mentalHealth = 70;
+  mentalHealth = 60;
   schoolHealth = 70;
-  socialHealth = 70;
+  socialHealth = 80;
 }
 
 function draw() {
@@ -435,9 +435,46 @@ function healthSetup() {
   rect(280, 80, 100, 20); // 100% bar
 
 
-  fill(200);
+  //fill(200);
+  if (mentalHealth > 90) {
+    fill("#20695d");
+  } else if (mentalHealth > 80) {
+    fill("#80b214");
+  } else if (mentalHealth > 70) {
+    fill("#ffcc2a");
+  } else if (mentalHealth > 60) {
+    fill("#f58633");
+  } else {
+    fill("#ff3a2f");
+  }
   rect(280, 20, mHbar * mentalHealth, 20); // the bar that decreases/increases
+
+  if (schoolHealth > 90) {
+    fill("#20695d");
+  } else if (schoolHealth > 80) {
+    fill("#80b214");
+  } else if (schoolHealth > 70) {
+    fill("#ffcc2a");
+  } else if (schoolHealth > 60) {
+    fill("#f58633");
+  } else {
+    fill("#ff3a2f");
+  }
+
   rect(280, 50, scHbar * schoolHealth, 20); 
+
+  if (socialHealth > 90) {
+    fill("#20695d");
+  } else if (socialHealth > 80) {
+    fill("#80b214");
+  } else if (socialHealth > 70) {
+    fill("#ffcc2a");
+  } else if (socialHealth > 60) {
+    fill("#f58633");
+  } else {
+    fill("#ff3a2f");
+  }
+
   rect(280, 80, soHbar * socialHealth, 20); 
 
 
