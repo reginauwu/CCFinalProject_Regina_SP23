@@ -17,9 +17,16 @@ let second;
 
 let mentalHealth;
 let schoolHealth;
-let happinessMeter;
+let socialHealth;
+
+let myFont;
+
+function preload() {
+  myFont = loadFont('Gaegu-Regular.ttf');
+}
 
 function setup() {
+  textFont(myFont);
   createCanvas(windowWidth, windowHeight);
   background(0);
   startScene();
@@ -36,12 +43,15 @@ function draw() {
 function startScene() {
   fill(255);
   textAlign(CENTER);
-  textSize(50);
+  textSize(150);
+  textFont(myFont);
   text("The NYU life", width/2, height/4);
   noStroke();
   startButton = createButton("Start");
+  startButton.style('font-size','50px');
   startButton.position(width/2 - startButton.width/2, height/2);
   startButton.mousePressed(scene1);
+
 }
 
 function scene1() {
@@ -101,6 +111,7 @@ function nextLine() {
 
 }
 
+
 function chose1() {
   //fill("#D1FFBD"); green
   schoolHealth -= 10;
@@ -114,5 +125,6 @@ function chose2() {
   schoolHealth += 10;
   nextLine();
 }
+
 
 
