@@ -26,6 +26,8 @@ let soHbar = 1;
 let myFont;
 let isScene1a = false;
 let isScene1b = false;
+let isScene2 = false;
+let sceneButton; // button
 
 function preload() {
   myFont = loadFont('Gaegu-Regular.ttf');
@@ -38,8 +40,8 @@ function setup() {
   startScene();
   isStartScene = true;
 
-  mentalHealth = 80;
-  schoolHealth = 90;
+  mentalHealth = 70;
+  schoolHealth = 70;
   socialHealth = 70;
 }
 
@@ -97,11 +99,12 @@ function scene1() {
 
 function scene1a() {
   isScene1 = false;
+  isScene1a = true;
   choice1.hide();
   choice2.hide();
-  schoolHealth -= 10;
-  mentalHealth += 20;
-  socialHealth += 5;
+  // schoolHealth -= 10;
+  // mentalHealth += 20;
+  // socialHealth += 5;
 
   background(0);
   dialogue.length = 0;
@@ -112,7 +115,7 @@ function scene1a() {
   textAlign(LEFT);
   dialogue[0] = " '...!?!!' ";
   dialogue[1] = "'Oh shoot- I it's 1 PM right now!'";
-  dialogue[2] = "'Bruh I just missed not one but TWO classes'";
+  dialogue[2] = "'Bruh it's gg'";
   dialogue[3] = "You end up being too lazy to attend those classes for the rest of the semester and decided to skip them.";
 
   nextButton = createButton(">");
@@ -130,11 +133,66 @@ function scene1a() {
 
 function scene1b() {
   isScene1 = false;
+  isScene1b = true;
   choice1.hide();
   choice2.hide();
-  schoolHealth += 10;
+  //schoolHealth += 10;
 
   background(0);
+  dialogue.length = 0;
+
+  textSize(80);
+
+  fill(255);
+  textAlign(LEFT);
+  dialogue[0] = "You quickly got up, finished your breakfast, and left.";
+  dialogue[1] = "By the time you arrived, you were 15 minutes early.";
+  dialogue[2] = "Seats besides you quickly fill up as the lecture begins";
+  dialogue[3] = "You end up learning a lot from the lecture and found it super enjoyable and can't wait for next class";
+  dialogue[4] = "However, you end up feeling super tired for the rest of the day";
+
+  nextButton = createButton(">");
+  nextButton.style('color', color(255));
+  nextButton.style('font-size','50px');
+  nextButton.style('background-color', color(50));
+  nextButton.position(width - 100, height - 100);
+  nextButton.mousePressed(nextLine);
+
+  line = 0;
+  text(dialogue[line], 20, height - 200, width - 20, height);
+
+  healthSetup();
+}
+
+function scene2() {
+  isScene1a = false;
+  isScene1b = false;
+  sceneButton.hide();
+  background(0);
+
+  dialogue.length = 0;
+
+  textSize(80);
+
+  fill(255);
+  textAlign(LEFT);
+  dialogue[0] = "Friend: 'Hey you're coming to the party tonight right?'";
+  dialogue[1] = "'Of course I am!'";
+  dialogue[2] = "Friend:'You better not be dipping again using some homework excuse'";
+  dialogue[3] = "The call ends and you think to yourself";
+  dialogue[4] = "'What homework excuse? I got nothing due!";
+
+  nextButton = createButton(">");
+  nextButton.style('color', color(255));
+  nextButton.style('font-size','50px');
+  nextButton.style('background-color', color(50));
+  nextButton.position(width - 100, height - 100);
+  nextButton.mousePressed(nextLine);
+
+  line = 0;
+  text(dialogue[line], 20, height - 200, width - 20, height);
+
+  healthSetup();
 }
 
 function nextLine() {
@@ -157,14 +215,14 @@ function nextLine() {
       choice1.style('color', color(255));
       choice1.style('font-size','50px');
       choice1.style('background-color', color(50));
-      choice1.position(width/2, height/2 - 50);
+      choice1.position(width/2 - 100, height/2 - 50);
       choice1.mousePressed(scene1a);
       
       choice2 = createButton("Get up now");
       choice2.style('color', color(255));
       choice2.style('font-size','50px');
       choice2.style('background-color', color(50));
-      choice2.position(width/2, height/2 + 50);
+      choice2.position(width/2 - 100, height/2 + 50);
       choice2.mousePressed(scene1b);
     }
     // if (line > 3) {
@@ -179,7 +237,39 @@ function nextLine() {
     // }
   }
 
+  if (isScene1a) {
+    if (line == 2) {
+      schoolHealth -= 10;
+      mentalHealth += 20;
+    }
+    if (line == 3) {
+      nextButton.hide();
+      sceneButton = createButton("Few weeks later");
+      sceneButton.style('color', color(255));
+      sceneButton.style('font-size','50px');
+      sceneButton.style('background-color', color(50));
+      sceneButton.position(width/2, height/2 - 50);
+      sceneButton.mousePressed(scene2);
 
+    }
+  }
+
+  if (isScene1b) {
+    if (line == 3) {
+      mentalHealth -= 10;
+      schoolHealth += 20;
+      socialHealth += 5;
+    }
+    if (line == 4) {
+      nextButton.hide();
+      sceneButton = createButton("Few weeks later");
+      sceneButton.style('color', color(255));
+      sceneButton.style('font-size','50px');
+      sceneButton.style('background-color', color(50));
+      sceneButton.position(width/2, height/2 - 50);
+      sceneButton.mousePressed(scene2);
+    }
+  }
 }
 
 
