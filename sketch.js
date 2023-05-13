@@ -51,12 +51,6 @@ function setup() {
 }
 
 function draw() {
-  // if (isScene2a) {
-  //   scene2a();
-  // }
-  // if (isScene2b) {
-  //   scene2b();
-  // }
 }
 
 function startScene() {
@@ -79,6 +73,9 @@ function scene1() {
   isScene1 = true;
   background(0);
   startButton.remove();
+
+  fill(100, 50);
+  rect(0, height/2 + 100, width, height/2); // dialogue box
 
   textSize(80);
 
@@ -107,12 +104,12 @@ function scene1a() {
   isScene1a = true;
   choice1.hide();
   choice2.hide();
-  // schoolHealth -= 10;
-  // mentalHealth += 20;
-  // socialHealth += 5;
 
   background(0);
   dialogue.length = 0;
+
+  fill(100, 50);
+  rect(0, height/2 + 100, width, height/2); // dialogue box
 
   textSize(80);
 
@@ -141,10 +138,12 @@ function scene1b() {
   isScene1b = true;
   choice1.hide();
   choice2.hide();
-  //schoolHealth += 10;
 
   background(0);
   dialogue.length = 0;
+
+  fill(100, 50);
+  rect(0, height/2 + 100, width, height/2); // dialogue box
 
   textSize(80);
 
@@ -178,6 +177,9 @@ function scene2() {
   background(0);
 
   dialogue.length = 0;
+
+  fill(100, 50);
+  rect(0, height/2 + 100, width, height/2); // dialogue box
 
   textSize(80);
 
@@ -215,6 +217,9 @@ function scene2a() {
   background(0);
   dialogue.length = 0;
 
+  fill(100, 50);
+  rect(0, height/2 + 100, width, height/2); // dialogue box
+
   textSize(80);
 
   fill(255);
@@ -245,6 +250,9 @@ function scene2b() {
 
   background(0);
   dialogue.length = 0;
+
+  fill(100, 50);
+  rect(0, height/2 + 100, width, height/2); // dialogue box
 
   textSize(80);
 
@@ -299,14 +307,14 @@ function scene3() {
 
 function nextLine() {
   background(0);
+
+  fill(100, 50);
+  rect(0, height/2 + 100, width, height/2); // dialogue box
+
+  fill(255);
   line++;
   textSize(80);
   text(dialogue[line], 20, height - 250, width - 20, height);
-
-  // textSize(14);
-  // text("Mental Health: " + mentalHealth, 20, 20);
-  // text("School Health: " + schoolHealth, 20, 35);
-  // text("Social Health: " + socialHealth, 20, 50);
 
   healthSetup();
 
@@ -317,26 +325,16 @@ function nextLine() {
       choice1.style('color', color(255));
       choice1.style('font-size','50px');
       choice1.style('background-color', color(50));
-      choice1.position(width/2 - 100, height/2 - 50);
+      choice1.position(width/2 - 150, height/2 - 100);
       choice1.mousePressed(scene1a);
       
       choice2 = createButton("Get up now");
       choice2.style('color', color(255));
       choice2.style('font-size','50px');
       choice2.style('background-color', color(50));
-      choice2.position(width/2 - 100, height/2 + 50);
+      choice2.position(width/2 - 150, height/2);
       choice2.mousePressed(scene1b);
     }
-    // if (line > 3) {
-    //   choice1.hide();
-    //   choice2.hide();
-    //   if (isScene2a) {
-    //     scene2a();
-    //   }
-    //   if (isScene2b) {
-    //     scene2b();
-    //   }
-    // }
   }
 
   if (isScene1a) {
@@ -350,7 +348,7 @@ function nextLine() {
       sceneButton.style('color', color(255));
       sceneButton.style('font-size','50px');
       sceneButton.style('background-color', color(50));
-      sceneButton.position(width/2 - 150, height/2 - 50);
+      sceneButton.position(width/2 - 200, height/2 - 100);
       sceneButton.mousePressed(scene2);
 
     }
@@ -368,7 +366,7 @@ function nextLine() {
       sceneButton.style('color', color(255));
       sceneButton.style('font-size','50px');
       sceneButton.style('background-color', color(50));
-      sceneButton.position(width/2 - 150, height/2 - 50);
+      sceneButton.position(width/2 - 200, height/2 - 100);
       sceneButton.mousePressed(scene2);
     }
   }
@@ -380,14 +378,14 @@ function nextLine() {
       choice2a.style('color', color(255));
       choice2a.style('font-size','50px');
       choice2a.style('background-color', color(50));
-      choice2a.position(width/2 - 100, height/2 - 50);
+      choice2a.position(width/2 - 150, height/2 - 100);
       choice2a.mousePressed(scene2a);
       
       choice2b = createButton("Do assginment");
       choice2b.style('color', color(255));
       choice2b.style('font-size','50px');
       choice2b.style('background-color', color(50));
-      choice2b.position(width/2 - 100, height/2 + 50);
+      choice2b.position(width/2 - 150, height/2);
       choice2b.mousePressed(scene2b);
     }
   }
@@ -404,7 +402,7 @@ function nextLine() {
       sceneButton.style('color', color(255));
       sceneButton.style('font-size','50px');
       sceneButton.style('background-color', color(50));
-      sceneButton.position(width/2 - 150, height/2 - 50);
+      sceneButton.position(width/2 - 200, height/2 - 100);
       sceneButton.mousePressed(scene3);
     }
   }
@@ -421,7 +419,7 @@ function nextLine() {
       sceneButton.style('color', color(255));
       sceneButton.style('font-size','50px');
       sceneButton.style('background-color', color(50));
-      sceneButton.position(width/2 - 150, height/2 - 50);
+      sceneButton.position(width/2 - 200, height/2 - 100);
       sceneButton.mousePressed(scene3);
     } 
   }
@@ -435,16 +433,16 @@ function healthSetup() {
   rect(280, 80, 100, 20); // 100% bar
 
 
-  //fill(200);
-  if (mentalHealth > 90) {
+  // for coloring bar
+  if (mentalHealth > 90) { // dark green
     fill("#20695d");
-  } else if (mentalHealth > 80) {
+  } else if (mentalHealth > 80) { // green
     fill("#80b214");
-  } else if (mentalHealth > 70) {
+  } else if (mentalHealth > 70) { // orange
     fill("#ffcc2a");
-  } else if (mentalHealth > 60) {
+  } else if (mentalHealth > 60) { // yellow
     fill("#f58633");
-  } else {
+  } else { // red
     fill("#ff3a2f");
   }
   rect(280, 20, mHbar * mentalHealth, 20); // the bar that decreases/increases
@@ -490,6 +488,7 @@ function healthSetup() {
   text("School Health: ", 20, 70);
   text("Social Health: ", 20, 100);
 }
+
 
 
 
